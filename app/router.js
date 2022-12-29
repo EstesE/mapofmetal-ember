@@ -13,4 +13,5 @@ Router.map(function() {
     this.route('property', { path: ':path' }, function () {
     });
   });
+  this.route('minecraft');
 });
