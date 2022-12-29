@@ -1,0 +1,57 @@
+{{!-- <LeafletMap id="leaflet-map" @lat={{this.lat}} @lng={{this.lng}} @zoom={{this.zoom}} @onMoveend={{this.updateCenter}} as |layers|>
+
+  <layers.tile @url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"/>
+
+  <layers.marker @location={{this.emberConfLocation}} as |marker|>
+    <marker.popup>
+      <h3>The Oregon Convention Center</h3>
+      777 NE Martin Luther King Jr Blvd<br>
+      Portland, OR 97232
+    </marker.popup>
+  </layers.marker>
+
+  <layers.marker @location={{this.hotel}} as |marker|>
+    <marker.popup>
+      <h3>Hotel</h3>
+    </marker.popup>
+  </layers.marker>
+
+</LeafletMap>
+{{yield}} --}}
+
+
+{{!-- <LeafletMap {{did-insert this.loadShit}} id="mcmap" @crs={{this.L.CRS.Simple}} @maxBounds="" @center={{this.center}} @lat={{this.lat}} @lng={{this.lng}} @zoom={{1}} @path="world-lighting" @onMousemove={{this.mouseMove}} @onMove={{this.move}} @onMoveend={{this.updateCenter}} as |layers|> --}}
+<LeafletMap {{did-insert this.loadShit}} id="mcmap" @crs={{this.L.CRS.Simple}} @maxBounds="" @center={{this.center}} @lat={{this.lat}} @lng={{this.lng}} @zoom={{1}} @path="world-lighting" @onMousemove={{this.mouseMove}} @onMoveend={{this.updateCenter}} as |layers|>
+
+  <layers.tile
+    @errorTileUrl="world-lighting/blank.png"
+    @tileSize="384"
+    @minZoom="0"
+    @maxZoom="9"
+    @noWrap={{true}}
+    @url="world-lighting/{z}/{x}/{y}.png"  
+    @north_direction="lower-left"
+    @controls={{this.controls}}
+    @tilesets={{this.tilesets}}
+  />
+  
+  {{!-- <layers.tile
+    @errorTileUrl="world-lighting/blank.png"
+    @tileSize="384"
+    @minZoom="0"
+    @zoomLevels="9"
+    @maxZoom="9"
+    @defaultZoom="1"
+    @noWrap={{true}}
+    @isOverlay={{false}}
+    @onTileerror={{this.error}}
+    @url="world-lighting/{z}/{x}/{y}.png"
+    @center={{this.center}}
+    @north_direction={{0}}
+  /> --}}
+  {{!-- <layers.tile @tileSize="256" @url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"/> --}}
+<div class="float-end" style="position: absolute; z-index: 99999; right: 0; color: lime;">
+  <h4>{{this.coords}}</h4>
+</div>
+</LeafletMap>
+{{yield}}

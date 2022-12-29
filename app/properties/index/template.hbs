@@ -1,0 +1,7 @@
+<h1>Properties</h1>
+{{#each model as |property|}}
+  <div>
+    <h4><LinkTo @route="properties.property" @model={{property}}>{{property.name}}</LinkTo></h4>
+  </div>
+{{/each}}
+{{outlet}}

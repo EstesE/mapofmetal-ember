@@ -1,0 +1,56 @@
+<div id="openseadragon1" {{did-insert this.didRender}} style="width: 100%; height: 98vh;">
+  {{#each this.genres as |genre|}}
+    {{!-- <div style="background: none transparent; border: none; margin: 0px; padding: 0px; position: static;"><img id="right-arrow-overlay" src="http://upload.wikimedia.org/wikipedia/commons/7/7a/Red_Arrow_Right.svg" alt="Right arrow" width="20" class="openseadragon-overlay" style="position: absolute; left: 243.1px; top: 198.187px; display: block;"></div> --}}
+    <div style="background: none transparent; border: none; margin: 0px; padding: 0px; position: static;">
+      <img {{on "click" (fn this.toggleModal "Connecticut")}} id="right-arrow-overlay" src="https://svgsilh.com/svg/1299051.svg" alt="Right arrow" width="20" class="openseadragon-overlay img-fluid" style="position: absolute; left: 243.1px; top: 198.187px; display: block;">
+    </div>
+  {{/each}}
+</div>
+
+{{#each this.genres as |genre|}}
+  <div id={{genre.id}}>
+    {{!-- <p><a href="http://iangilman.com" class="xxx" target="_blank">{{format-name genre.id}}</a></p>
+    <a class="xxx">Massachusetts</a> --}}
+    {{!-- <img id="right-arrow-overlay" src="http://upload.wikimedia.org/wikipedia/commons/7/7a/Red_Arrow_Right.svg" alt="Right arrow" width="20" class="openseadragon-overlay" style="position: absolute; left: 243.1px; top: 198.187px; display: block;"> --}}
+    {{!-- <img id="right-arrow-overlay" src="http://upload.wikimedia.org/wikipedia/commons/7/7a/Red_Arrow_Right.svg" alt="Right arrow" width="20" class="openseadragon-overlay" style="position: absolute; left: 243.1px; top: 198.187px; display: block;"> --}}
+  </div>
+{{/each}}
+{{!-- <div id="mainoverlay">
+  <div id="overlay1">
+    <p><a href="http://iangilman.com" id="xxx" target="_blank">Click to Toggle Colour!</a></p>
+  </div>
+  <div id="overlay2">
+    <p><a href="http://iangilman.com" id="xxx" target="_blank">Other Stuff!</a></p>
+  </div>
+</div> --}}
+
+{{!-- <div id="seadragon-viewer" {{did-insert this.didRender}} style="width:800px; height:600px;"></div> --}}
+{{yield}}
+<div class="info" style="float: left; width: 250px;">
+  <div class="position">Web:<br>(3.5,129.92)<br><br>Viewport:<br>(0.2,0.59)<br><br>Image:<br>(1382.46,4177.6)</div>
+  <div class="zoom" style="margin-top: 3em;">Zoom:<br>1.58<br><br>Image Zoom:<br>0.09</div>
+</div>
+
+{{#if showModal}}
+  <ModalDialog
+    @onClickOverlay={{fn this.nullAction}}
+  >
+    <br/>&nbsp;<br/>
+    <br/>&nbsp;<br/>
+    <br/>&nbsp;<br/>
+    <br/>&nbsp;<br/>
+    <br/>&nbsp;<br/>
+    <div class="container">
+      {{!-- <iframe width="240" height="145" src="https://www.youtube.com/embed/6S-n1Kw4HQU"></iframe> --}}
+      <iframe width="240" height="145" src="https://www.youtube.com/embed/LatUiti6I30"></iframe>
+    </div>
+    
+    <div>{{this.state}}</div>
+    <button type="button" class="btn btn-primary-outline m-r" {{on "click" this.close}}><span class="fa fa-pencil-square-o"></span> <span>Close</span></button>
+  </ModalDialog>
+{{/if}}
+
+<div style="position: absolute; top: 50px; right: 50px;" id="youtube">
+  {{!-- <iframe width="420" height="345" src="https://www.youtube.com/embed/6S-n1Kw4HQU">
+  </iframe> --}}
+</div>
