@@ -1,0 +1,14 @@
+<h1> X {{this.bounds}} X</h1>
+<LeafletMap id="image-map" @center={{this.center}} @zoom={{-3}} as |layers|>
+
+  <layers.image
+    @url="https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg"
+    @bounds={{this.bounds}}
+    @onLoad={{this.onLoad}}
+    @onError={{this.onError}}
+    @zIndex={{999999}}
+  />
+
+</LeafletMap>
+
+{{outlet}}

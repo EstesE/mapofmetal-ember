@@ -14,4 +14,5 @@ Router.map(function() {
     });
   });
   this.route('minecraft');
+  this.route('minecraft2');
 });

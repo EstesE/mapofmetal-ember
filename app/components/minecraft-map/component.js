@@ -103,6 +103,7 @@ export default class MinecraftMapComponent extends Component {
         };
         component.overviewerConfig = overviewerConfig;
         component.getTileUrlGenerator = function(path, pathBase, pathExt) {
+            // debugger;
             return function(o) {
                 var url = path;
                 var zoom = o.z;
@@ -320,6 +321,13 @@ export default class MinecraftMapComponent extends Component {
             let temp = component.fromLatLngToWorld(ev.latlng.lat, ev.latlng.lng, component.tilesets[0]);
             component.coords = `x: ${temp.x} z: ${temp.z}`;
             // console.log(component.coords);
+        });
+
+        component.map.on('click', (ev) => {
+            console.log(`${ev.latlng.lat} ${ev.latlng.lng}`);
+            let coords = component.fromLatLngToWorld(ev.latlng.lat, ev.latlng.lng, component.tilesets[0]);
+            console.log(`${coords.x} ${coords.z}`);
+            component.args.click(coords);
         });
 
         component.worldCtrl = new component.control();
